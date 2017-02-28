@@ -24,7 +24,7 @@ public class ServiceProviderProfile extends AppCompatActivity {
         paymentBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Toast.makeText(ServiceProviderProfile.this, "Hello", Toast.LENGTH_SHORT).show();
             }
         });
     }
