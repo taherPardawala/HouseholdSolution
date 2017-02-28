@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">HouseholdSolutions</string>
+    <string-array name="services_array">
+        <item>Maid</item>
+        <item>Cook</item>
+        <item>Caterer</item>
+        <item>Gardener</item>
+    </string-array>
+</resources>
