@@ -23,7 +23,7 @@
         <activity android:name=".OptionsScreen" />
         <activity android:name=".EditProfile" />
         <activity android:name=".SearchScreen" />
-        <activity android:name=".ServiceProviderProfile"></activity>
+        <activity android:name=".ServiceProviderProfile"/>
     </application>
 
 </manifest>
