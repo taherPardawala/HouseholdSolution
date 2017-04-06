@@ -188,6 +188,8 @@ public class SearchScreen extends AppCompatActivity {
                                 Log.d("DBTEST", "onItemClick: " + String.valueOf(position));
                                 Intent myIntent = new Intent(SearchScreen.this , ServiceProviderProfile.class);
                                 myIntent.putExtra("ServiceProviderUID", serviceProviderUIDArrayList.get(position));
+                                myIntent.putExtra("ServiceDate" , selectedDate);
+                                myIntent.putExtra("ServiceType" , serviceType);
                                 SearchScreen.this.startActivity(myIntent);
                             }
                         });
