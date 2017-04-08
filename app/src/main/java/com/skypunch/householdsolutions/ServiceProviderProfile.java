@@ -1,10 +1,9 @@
 package com.skypunch.householdsolutions;
 
+import android.annotation.TargetApi;
 import android.content.Intent;
 import android.icu.util.Calendar;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -80,13 +79,11 @@ public class ServiceProviderProfile extends AppCompatActivity {
         });
 
         addToCartBtn.setOnClickListener(new View.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.N)
+            @TargetApi(24)
             @Override
             public void onClick(View v) {
                 try {
                     fireUser = fireAuth.getCurrentUser();
-                    //AddUserToCart autc = new AddUserToCart(serviceDate);
-                    //SimpleDateFormat sp = new SimpleDateFormat("hh:mm:ss");
                     Calendar cal = Calendar.getInstance();
                     String[] time = new String[10];
                     time = cal.getTime().toString().split(" ");

@@ -58,6 +58,8 @@ public class ViewCart extends AppCompatActivity {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
                             userNames.add(dataSnapshot.child("firstName").getValue().toString());
+                            Toast.makeText(ViewCart.this, dataSnapshot.child("firstName").getValue().toString(), Toast.LENGTH_SHORT).show();
+                            cartList.setAdapter(new ArrayAdapter<>(ViewCart.this, R.layout.activity_listview, userNames));
                         }
 
                         @Override
@@ -66,7 +68,7 @@ public class ViewCart extends AppCompatActivity {
                         }
                     });
                 }
-                cartList.setAdapter(new ArrayAdapter<>(ViewCart.this, R.layout.activity_listview, userNames));
+
             }
 
             @Override
