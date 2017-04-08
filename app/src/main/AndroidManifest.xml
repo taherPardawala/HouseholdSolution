@@ -24,7 +24,10 @@
         <activity android:name=".EditProfile" />
         <activity android:name=".SearchScreen" />
         <activity android:name=".ServiceProviderProfile" />
-        <activity android:name=".PaymentScreen"></activity>
+        <activity android:name=".PaymentScreen" />
+        <activity android:name=".CustomerCare" />
+        <activity android:name=".TrendingScreen" />
+        <activity android:name=".ViewCart"></activity>
     </application>
 
 </manifest>

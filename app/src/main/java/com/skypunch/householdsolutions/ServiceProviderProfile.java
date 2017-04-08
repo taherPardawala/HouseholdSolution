@@ -1,7 +1,10 @@
 package com.skypunch.householdsolutions;
 
 import android.content.Intent;
+import android.icu.util.Calendar;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -26,7 +29,7 @@ public class ServiceProviderProfile extends AppCompatActivity {
     private DatabaseReference fireDB = FirebaseDatabase.getInstance().getReference().child("ServiceProvider");
     private DatabaseReference fireAddToCart = FirebaseDatabase.getInstance().getReference();
     private FirebaseUser fireUser;
-    private FirebaseAuth fireAuth;
+    private FirebaseAuth fireAuth = FirebaseAuth.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,12 +80,21 @@ public class ServiceProviderProfile extends AppCompatActivity {
         });
 
         addToCartBtn.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onClick(View v) {
                 try {
                     fireUser = fireAuth.getCurrentUser();
-                    AddUserToCart autc = new AddUserToCart(serviceDate);
-                    fireAddToCart.child("UserCart").child(fireUser.getUid()).child(serviceType).setValue(autc);
+                    //AddUserToCart autc = new AddUserToCart(serviceDate);
+                    //SimpleDateFormat sp = new SimpleDateFormat("hh:mm:ss");
+                    Calendar cal = Calendar.getInstance();
+                    String[] time = new String[10];
+                    time = cal.getTime().toString().split(" ");
+                    //Toast.makeText(ServiceProviderProfile.this, time[2]+time[3]+time[4] , Toast.LENGTH_SHORT).show();
+                    fireAddToCart.child("UserCart").child(fireUser.getUid()).child(time[3]).child("Date").setValue(serviceDate);
+                    fireAddToCart.child("UserCart").child(fireUser.getUid()).child(time[3]).child("ServiceType").setValue(serviceType);
+                    fireAddToCart.child("UserCart").child(fireUser.getUid()).child(time[3]).child("UID").setValue(serviceProviderUID);
+
                 } catch(Exception e) {
                     e.printStackTrace();
                 }

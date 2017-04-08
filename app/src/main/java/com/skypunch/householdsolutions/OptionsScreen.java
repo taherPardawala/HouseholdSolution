@@ -19,7 +19,7 @@ import com.google.firebase.database.ValueEventListener;
 public class OptionsScreen extends AppCompatActivity {
 
     private TextView usernameTV;
-    private Button editProfileBtn, logoutBtn , searchBtn;
+    private Button editProfileBtn, logoutBtn , searchBtn, customerServiceBtn , trendingBtn , viewCartBtn;
 
     private final FirebaseAuth fireAuth = FirebaseAuth.getInstance();
     private final FirebaseUser fireUser = fireAuth.getCurrentUser();
@@ -34,6 +34,9 @@ public class OptionsScreen extends AppCompatActivity {
         editProfileBtn = (Button) findViewById(R.id.editProfileBtn);
         logoutBtn = (Button) findViewById(R.id.logoutBtn);
         searchBtn = (Button) findViewById(R.id.searchBtn);
+        customerServiceBtn = (Button) findViewById(R.id.customerServiceBtn);
+        trendingBtn = (Button) findViewById(R.id.trendingBtn);
+        viewCartBtn = (Button) findViewById(R.id.viewCartBtn);
 
         fireDB.child(fireUser.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -96,6 +99,33 @@ public class OptionsScreen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent myIntent = new Intent(OptionsScreen.this, SearchScreen.class);
+                OptionsScreen.this.startActivity(myIntent);
+                OptionsScreen.this.finish();
+            }
+        });
+
+        customerServiceBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(OptionsScreen.this, CustomerCare.class);
+                OptionsScreen.this.startActivity(myIntent);
+                OptionsScreen.this.finish();
+            }
+        });
+
+        trendingBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(OptionsScreen.this, TrendingScreen.class);
+                OptionsScreen.this.startActivity(myIntent);
+                OptionsScreen.this.finish();
+            }
+        });
+
+        viewCartBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(OptionsScreen.this, ViewCart.class);
                 OptionsScreen.this.startActivity(myIntent);
                 OptionsScreen.this.finish();
             }
