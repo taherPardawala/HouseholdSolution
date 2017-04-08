@@ -171,4 +171,11 @@ public class EditProfile extends AppCompatActivity {
         }
         return false;
     }
+
+    @Override
+    public void onBackPressed(){
+        Intent myIntent = new Intent(EditProfile.this, OptionsScreen.class);
+        EditProfile.this.startActivity(myIntent);
+        EditProfile.this.finish();
+    }
 }

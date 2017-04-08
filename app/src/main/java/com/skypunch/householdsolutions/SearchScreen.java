@@ -203,4 +203,10 @@ public class SearchScreen extends AppCompatActivity {
             });
         }
     }
+    @Override
+    public void onBackPressed(){
+        Intent myIntent = new Intent(SearchScreen.this, OptionsScreen.class);
+        SearchScreen.this.startActivity(myIntent);
+        SearchScreen.this.finish();
+    }
 }

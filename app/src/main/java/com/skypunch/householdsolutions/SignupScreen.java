@@ -186,4 +186,11 @@ public class SignupScreen extends AppCompatActivity {
         }
         return false;
     }
+
+    @Override
+    public void onBackPressed(){
+        Intent myIntent = new Intent(SignupScreen.this, OptionsScreen.class);
+        SignupScreen.this.startActivity(myIntent);
+        SignupScreen.this.finish();
+    }
 }

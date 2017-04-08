@@ -1,5 +1,6 @@
 package com.skypunch.householdsolutions;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ArrayAdapter;
@@ -76,6 +77,13 @@ public class ViewCart extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public void onBackPressed(){
+        Intent myIntent = new Intent(ViewCart.this, OptionsScreen.class);
+        ViewCart.this.startActivity(myIntent);
+        ViewCart.this.finish();
     }
 }
 
